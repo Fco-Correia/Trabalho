@@ -74,6 +74,9 @@ class Genotype {
         if (uniao[0] == "i" && (uniao[1] == "A" || uniao[1] == "B")) {
           uniao = otherGenotype.genotype[j] + genotype[i];
         }
+        if(uniao[0]== "B" && uniao[1]=="A"){
+          uniao = otherGenotype.genotype[j] + genotype[i];
+        }
         if (!offspringGenotypes.contains(uniao)) {
           offspringGenotypes.add(uniao);
         }
