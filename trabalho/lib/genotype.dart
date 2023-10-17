@@ -1,6 +1,6 @@
 class Genotype {
   final String genotype;
-  // Construtor
+  
   Genotype(this.genotype) {
     final List<String> validGenotypes = ["AA", "Ai", "BB", "Bi", "AB", "ii"];
     if (!validGenotypes.contains(genotype)) {
@@ -14,7 +14,7 @@ class Genotype {
   }
 
   String get bloodType {
-    // Mapeia os genótipos para os tipos sanguíneos correspondentes
+    
     final Map<String, String> myMap = {
       "AA": "A",
       "Ai": "A",
@@ -23,7 +23,7 @@ class Genotype {
       "AB": "AB",
       "ii": "O",
     };
-    return myMap[genotype]!; // ! para não dar erro de nullable
+    return myMap[genotype]!;
   }
 
   List<String> get alleles {
