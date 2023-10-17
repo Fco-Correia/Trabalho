@@ -40,14 +40,13 @@ class Genotype {
 
   List<String> get agglutinogens {
     final List<String> agglutinogensList = [];
-
-    if (genotype[0] == 'i') {
-      agglutinogensList.add(genotype[0]);
-    }
+    
     for (int i = 0; i < genotype.length; i++) {
       var agglutinogen = genotype[i];
       if (agglutinogen == 'A' || agglutinogen == 'B') {
-        agglutinogensList.add(agglutinogen);
+        if (!agglutinogensList.contains(agglutinogen)){
+          agglutinogensList.add(agglutinogen);
+        }
       }
     }
     return agglutinogensList;
