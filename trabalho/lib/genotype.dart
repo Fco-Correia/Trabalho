@@ -1,10 +1,10 @@
 class Genotype {
   final String genotype;
-  
+
   Genotype(this.genotype) {
-    final List<String> validGenotypes = ["AA", "Ai", "BB", "Bi", "AB", "ii"];
-    if (!validGenotypes.contains(genotype)) {
-      throw ArgumentError();
+    final List<String> genotypes = ["AA", "Ai", "BB", "Bi", "AB", "ii"];
+    if (!genotypes.contains(genotype)) {
+      throw Exception();
     }
   }
 
@@ -14,7 +14,6 @@ class Genotype {
   }
 
   String get bloodType {
-    
     final Map<String, String> myMap = {
       "AA": "A",
       "Ai": "A",
@@ -40,11 +39,11 @@ class Genotype {
 
   List<String> get agglutinogens {
     final List<String> agglutinogensList = [];
-    
+
     for (int i = 0; i < genotype.length; i++) {
       var agglutinogen = genotype[i];
       if (agglutinogen == 'A' || agglutinogen == 'B') {
-        if (!agglutinogensList.contains(agglutinogen)){
+        if (!agglutinogensList.contains(agglutinogen)) {
           agglutinogensList.add(agglutinogen);
         }
       }
@@ -67,18 +66,18 @@ class Genotype {
 
   List<String> offsprings(Genotype otherGenotype) {
     List<String> offspringGenotypes = [];
-    dynamic uniao;
+    dynamic union;
     for (int i = 0; i < genotype.length; i++) {
       for (int j = 0; j < otherGenotype.genotype.length; j++) {
-        uniao = genotype[i] + otherGenotype.genotype[j];
-        if (uniao[0] == "i" && (uniao[1] == "A" || uniao[1] == "B")) {
-          uniao = otherGenotype.genotype[j] + genotype[i];
+        union = genotype[i] + otherGenotype.genotype[j];
+        if (union[0] == "i" && (union[1] == "A" || union[1] == "B")) {
+          union = otherGenotype.genotype[j] + genotype[i];
         }
-        if(uniao[0]== "B" && uniao[1]=="A"){
-          uniao = otherGenotype.genotype[j] + genotype[i];
+        if (union[0] == "B" && union[1] == "A") {
+          union = otherGenotype.genotype[j] + genotype[i];
         }
-        if (!offspringGenotypes.contains(uniao)) {
-          offspringGenotypes.add(uniao);
+        if (!offspringGenotypes.contains(union)) {
+          offspringGenotypes.add(union);
         }
       }
     }
