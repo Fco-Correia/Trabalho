@@ -2,15 +2,15 @@ import './genotype.dart';
 
 class Individual {
   final Genotype genotype;
-  final String nome;
+  final String name;
   static int N = 1;
 
-  Individual(String genotype, [String? nome])
+  Individual(String genotype, [String? name])
       : genotype = Genotype(genotype),
-        nome = nome ?? "Indiv${N++}";
+        name = name ?? "Indiv${N++}";
 
   @override
   String toString() {
-    return "$nome(${genotype.bloodType})";
+    return "$name(${genotype.bloodType})";
   }
 }
